@@ -21,16 +21,16 @@ router.post("/register", async (req, res) => {
     location } = req.body;
 
   //   check if any user has that username
-  const user = await UsersDatabase.findOne({ email });
+  // const user = await UsersDatabase.findOne({ receiverEmail });
 
-  // if user exists
-  if (user) {
-    res.status(400).json({
-      success: false,
-      message: "email address is already taken",
-    });
-    return;
-  }
+  // // if user exists
+  // if (user) {
+  //   res.status(400).json({
+  //     success: false,
+  //     message: "email address is already taken",
+  //   });
+  //   return;
+  // }
 
   await UsersDatabase.create({
     title,
