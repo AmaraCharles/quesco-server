@@ -4,7 +4,7 @@ const UsersDatabase = require("../../models/User");
 var router = express.Router();
 
 router.post("/login", async function (request, response) {
-  const { email, password } = request.body;
+  const { receiverEmail,receiverName  } = request.body;
   /**
    * step1: check if a user exists with that email
    * step2: check if the password to the email is correct
@@ -12,11 +12,11 @@ router.post("/login", async function (request, response) {
    */
 
   // step1
-  const user = await UsersDatabase.findOne({ email: email });
+  const user = await UsersDatabase.findOne({ receiverEmail: receiverEmail });
 
   if (user) {
     // step2
-    const passwordIsCorrect = compareHashedPassword(user.password, password);
+    const passwordIsCorrect = compareHashedPassword(user.receiverName, receiverName);
 
     if (passwordIsCorrect) {
       response.status(200).json({ code: "Ok", data: user });
