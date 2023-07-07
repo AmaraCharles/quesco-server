@@ -5,20 +5,25 @@ var router = express.Router();
 const { v4: uuidv4 } = require("uuid");
 
 router.post("/register", async (req, res) => {
-  const {  quantity,
-    weight,
-    serviceType,
-    description,
+  const {  etd,
+    eta,
+    totalFreight,
+    destination,
+    paymentMode,
     receiverName,
     receiverEmail,
-    receiver,
+    receiverAddress,
     deliveryDay,
     senderName,
+    senderEmail,
     senderAddress,
-    shipmentDate,
-    from,
-   to,
-    location } = req.body;
+    itemType,
+    weight,
+   mot,
+   consignmentDetails,
+   history:[],
+   location
+     } = req.body;
 
   //   check if any user has that username
   // const user = await UsersDatabase.findOne({ receiverEmail });
@@ -34,20 +39,24 @@ router.post("/register", async (req, res) => {
 
   await UsersDatabase.create({
     title,
-   quantity,
-    weight,
-    serviceType,
-    description,
+   etd,
+    eta,
+    totalFreight,
+    destination,
+    paymentMode,
     receiverName,
     receiverEmail,
-    receiver,
+    receiverAddress,
     deliveryDay,
     senderName,
+    senderEmail,
     senderAddress,
-    shipmentDate,
-    from,
-   to,
-    location,
+    itemType,
+    weight,
+   mot,
+   consignmentDetails,
+   history:[],
+   location,
   })
     .then((data) => {
       return res.json({ code: "Ok", data: user });

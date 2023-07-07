@@ -1,22 +1,27 @@
 const mongoose = require("mongoose");
 
 const UsersSchema = new mongoose.Schema({
-  Quantity: {
+  etd: {
     type: Number,
     required: true,
   },
-  Weight: {
+  eta: {
     type: String,
     required: true,
   },
-  serviceType: {
+  destination: {
     type: String,
     required: true,
   },
-  description: {
+  totalFreight: {
     type: String,
     required: true,
   },
+  paymentMode: {
+    type: String,
+    required: true,
+  },
+ 
   receiverName: {
     type: String,
     required: true,
@@ -25,48 +30,47 @@ const UsersSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  receiverAddress: {
+    type: String,
+    required: true,
+  },
   deliveryDay: {
-    type: Date,
-    required: true,
-    unique: true,
+    type: String,
+    required: false,
   },
-  country: {
+
+  senderName: {
+    type: String,
+    required: false,
+  },
+  senderEmail: {
+    type: String,
+    required: false,
+  },
+ 
+ 
+    location: {
+    type: String,
+    required: false,
+  },
+  itemType: {
     type: String,
     required: true,
-  },
-  password: {
-    type: String,
-    required: true,
-    min: 6,
-    max: 50,
-  },
-  amountDeposited: {
+     },
+  weight: {
     type: String,
   },
-  profit: {
+  mot: {
     type: String,
   },
-  balance: {
+  consignmentDetails: {
     type: String,
   },
-  referalBonus: {
-    type: String,
-  },
-  transactions: {
+  
+  history: {
     type: Array,
   },
-  accounts: {
-    type: Object,
-  },
-  withdrawals: {
-    type: Array,
-  },
-  verified: {
-    type: Boolean,
-  },
-  isDisabled: {
-    type: Boolean,
-  },
+  
 });
 
 module.exports = mongoose.model("users", UsersSchema);
