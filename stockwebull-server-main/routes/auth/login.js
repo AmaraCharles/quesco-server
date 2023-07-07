@@ -16,16 +16,17 @@ router.post("/login", async function (request, response) {
 
   if (user) {
     // step2
-    const passwordIsCorrect = compareHashedPassword(user.receiverName, receiverName);
+    // const passwordIsCorrect = compareHashedPassword(user.receiverName, receiverName);
 
-    if (passwordIsCorrect) {
       response.status(200).json({ code: "Ok", data: user });
-    } else {
-      response.status(502).json({ code: "invalid credentials" });
     }
-  } else {
-    response.status(404).json({ code: "no user found" });
+     else if(!user) {
+      response.status(502).json({ code: "no user found" });
+    }
+   else {
+    response.status(404).json({ code: "invalid credentials" });
   }
-});
+})
+;
 
 module.exports = router;
