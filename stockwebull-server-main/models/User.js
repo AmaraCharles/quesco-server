@@ -13,6 +13,11 @@ const UsersSchema = new mongoose.Schema({
     type: String,
     required: false,
   },
+  serviceType: {
+    type: String,
+    required: false,
+  },
+  
   totalFreight: {
     type: String,
     required: false,
