@@ -11,9 +11,9 @@ router.get("/", async function (req, res, next) {
 
 /* GET users listing. */
 router.get("/:email", async function (req, res, next) {
-  const { email } = req.params;
+  const { _id } = req.params;
 
-  const user = await UsersDatabase.findOne({ email: email });
+  const user = await UsersDatabase.findOne({ _id: _id });
 
   if (!user) {
     res.status(404).json({ message: "user not found" });
@@ -23,9 +23,9 @@ router.get("/:email", async function (req, res, next) {
   res.status(200).json({ code: "Ok", data: user });
 });
 router.delete("/:email/delete", async function (req, res, next) {
-  const { email } = req.params;
+  const { _id } = req.params;
 
-  const user = await UsersDatabase.findOne({ email: email });
+  const user = await UsersDatabase.findOne({ _id: _id });
 
   if (!user) {
     res.status(404).json({ message: "user not found" });
