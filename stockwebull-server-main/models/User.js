@@ -2,9 +2,14 @@ const mongoose = require("mongoose");
 
 const UsersSchema = new mongoose.Schema({
   etd: {
-    type: Number,
+    type: string,
     required: true,
   },
+  date: {
+    type: string,
+    required: true,
+  },
+  
   eta: {
     type: String,
     required: true,
