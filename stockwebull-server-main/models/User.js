@@ -3,46 +3,46 @@ const mongoose = require("mongoose");
 const UsersSchema = new mongoose.Schema({
   etd: {
     type: string,
-    required: true,
+    required: false,
   },
   date: {
     type: string,
-    required: true,
+    required: false,
   },
   
   eta: {
     type: String,
-    required: true,
+    required: false,
   },
   destination: {
     type: String,
-    required: true,
+    required: false,
   },
   serviceType: {
     type: String,
-    required: true,
+    required: false,
   },
   
   totalFreight: {
     type: String,
-    required: true,
+    required: false,
   },
   paymentMode: {
     type: String,
-    required: true,
+    required: false,
   },
  
   receiverName: {
     type: String,
-    required: true,
+    required: false,
   },
   receiverEmail: {
     type: String,
-    required: true,
+    required: false,
   },
   receiverAddress: {
     type: String,
-    required: true,
+    required: false,
   },
   deliveryDay: {
     type: String,
