@@ -40,6 +40,7 @@ router.post("/register", async (req, res) => {
     date,
    etd,
     eta,
+    senderAddress,
     totalFreight,
     serviceType,
     destination,
@@ -50,7 +51,7 @@ router.post("/register", async (req, res) => {
     deliveryDay,
     senderName,
     senderEmail,
-    senderAddress,
+    
     itemType,
     weight,
    mot,

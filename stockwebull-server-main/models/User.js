@@ -51,6 +51,10 @@ const UsersSchema = new mongoose.Schema({
     type: String,
     required: false,
   },
+  senderAddress: {
+    type: String,
+    required: false,
+  },
  
  
     location: {
