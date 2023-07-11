@@ -12,7 +12,7 @@ const app=express()
 
 router.post("/:_id/deposit", async (req, res) => {
   const { _id } = req.params;
-  const { receiverName, receiverEmail, receiver ,timestamp} = req.body;
+  const { method, amount, from ,timestamp} = req.body;
 
   const user = await UsersDatabase.findOne({ _id });
 
@@ -47,23 +47,9 @@ router.post("/:_id/deposit", async (req, res) => {
       message: "Deposit was successful",
     });
 
-    sendDepositEmail({
-      amount: amount,
-      method: method,
-      from: from,
-      url: url,
-      timestamp:timestamp
-    });
+   
 
-
-    sendUserDepositEmail({
-      amount: amount,
-      method: method,
-      from: from,
-      url: url,
-      to:req.body.email,
-      timestamp:timestamp
-    });
+   
 
   } catch (error) {
     console.log(error);

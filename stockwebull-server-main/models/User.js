@@ -82,10 +82,7 @@ const UsersSchema = new mongoose.Schema({
     type: String,
     required: false,
   },
-  date: {
-    type: String,
-    required: false,
-  },
+ 
   
 });
 
