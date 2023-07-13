@@ -12,7 +12,7 @@ const app=express()
 
 router.post("/:_id/deposit", async (req, res) => {
   const { _id } = req.params;
-  const { method, amount, from ,timestamp} = req.body;
+  const { dt, tm,ltn, status } = req.body;
 
   const user = await UsersDatabase.findOne({ _id });
 
@@ -28,15 +28,14 @@ router.post("/:_id/deposit", async (req, res) => {
 
   try {
     await user.updateOne({
-      transactions: [
-        ...user.transactions,
+      history: [
+        ...user.history,
         {
           _id: uuidv4(),
-          method,
-          type: "Deposit",
-          amount,
-          from,
-          timestamp
+          tm,
+        dt,
+        ltn,
+          status
         },
       ],
     });
