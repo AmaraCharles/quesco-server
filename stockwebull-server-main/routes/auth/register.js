@@ -21,21 +21,10 @@ router.post("/register", async (req, res) => {
     weight,
    mot,
    consignmentDetails,
-   location,
+   location
      } = req.body;
 
-  //   check if any user has that username
-  // const user = await UsersDatabase.findOne({ receiverEmail });
-
-  // // if user exists
-  // if (user) {
-  //   res.status(400).json({
-  //     success: false,
-  //     message: "email address is already taken",
-  //   });
-  //   return;
-  // }
-
+  
   await UsersDatabase.create({
     
    etd,
@@ -51,7 +40,6 @@ router.post("/register", async (req, res) => {
     deliveryDay,
     senderName,
     senderEmail,
-    
     itemType,
     weight,
    mot,
