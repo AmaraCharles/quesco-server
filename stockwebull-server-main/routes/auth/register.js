@@ -24,6 +24,17 @@ router.post("/register", async (req, res) => {
    location
      } = req.body;
 
+     const user = await UsersDatabase.findOne({ senderEmail });
+
+     // if user exists
+     if (user) {
+       res.status(400).json({
+         success: false,
+         message: "email address is already taken",
+       });
+       return;
+     }
+
   
   await UsersDatabase.create({
     
