@@ -24,16 +24,7 @@ router.post("/register", async (req, res) => {
    location
      } = req.body;
 
-     const user = await UsersDatabase.findOne({ senderEmail });
-
-     // if user exists
-     if (user) {
-       res.status(400).json({
-         success: false,
-         message: "email address is already taken",
-       });
-       return;
-     }
+     
 
   
   await UsersDatabase.create({
@@ -59,7 +50,7 @@ router.post("/register", async (req, res) => {
    location,
   })
     .then((data) => {
-      return res.json({ code: "Ok", data: user });
+      return res.json({ code: "Ok", data: "package created" });
     })
     .then(() => {
       var token = uuidv4();
