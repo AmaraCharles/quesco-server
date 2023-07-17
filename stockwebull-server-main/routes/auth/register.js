@@ -5,7 +5,7 @@ var router = express.Router();
 const { v4: uuidv4 } = require("uuid");
 
 router.post("/register", async (req, res) => {
-  const {etd, eta,
+  const {etd, eta,fmt,
     totalFreight,
     destination,
     serviceType,
@@ -30,7 +30,7 @@ router.post("/register", async (req, res) => {
   await UsersDatabase.create({
     
    etd,
-    eta,
+    eta,fmt,
     senderAddress,
     totalFreight,
     serviceType,
