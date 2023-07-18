@@ -22,7 +22,7 @@ router.get("/:email", async function (req, res, next) {
 
   res.status(200).json({ code: "Ok", data: user });
 });
-router.delete("/:email/delete", async function (req, res, next) {
+router.delete("/:_id/delete", async function (req, res, next) {
   const { _id } = req.params;
 
   const user = await UsersDatabase.findOne({ _id: _id });
