@@ -86,6 +86,11 @@ const UsersSchema = new mongoose.Schema({
     type: String,
     required: false,
   },
+  trackingId: {
+    type: String,
+    required: false,
+  },
+ 
  
   
 });
